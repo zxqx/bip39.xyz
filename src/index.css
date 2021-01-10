@@ -58,7 +58,7 @@ body {
 .app-container {
   padding-top: 2em;
   width: 100%;
-  height: calc(100vh - 1.5em);
+  height: calc(100vh - 2em);
   display: flex;
   justify-content: center;
   background: rgba(245, 244, 255, 0.4);
@@ -72,16 +72,16 @@ h1 {
 
 .container {
   position: relative;
-  margin-top: 2em;
-  padding: 30px 50px;
+  margin-top: 1em;
+  padding: 20px 50px 30px;
   width: 560px;
   height: 350px;
-  border-radius: 30px;
-  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: #fff;
+  border-radius: 30px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -102,7 +102,6 @@ button {
   bottom: 40px;
   padding: 15px 30px;
   width: 222px;
-  height: 58px;
   font-family: Geomanist;
   font-size: 22px;
   font-weight: 500;
@@ -124,8 +123,14 @@ button:focus {
 }
 
 button:active {
-  background: #602bb1;
   bottom: 39px;
+  background: #602bb1;
+}
+
+button:disabled {
+  bottom: 40px;
+  background: rgba(114, 55, 204, 0.5);
+  cursor: not-allowed;
 }
 
 .copy-button {

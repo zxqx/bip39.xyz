@@ -14,7 +14,7 @@ export default ({ text }: Props) => {
       text={text}
       onCopy={() => setCopied(true)}
     >
-      <button className="copy-button">
+      <button className="copy-button" disabled={copied}>
         <CopyIcon size={16} />
         <span className="button-text">
           {copied ? 'Copied!' : 'Copy to clipboard'}

@@ -21,7 +21,7 @@ export default ({
       </>
     )}
 
-    {isRecording && !isProcessing && (
+    {(isRecording || isProcessing) && (
       <>
         <StopIcon size={16} />
         <span className="button-text">Stop</span>
