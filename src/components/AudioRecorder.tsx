@@ -64,7 +64,7 @@ export default () => {
 
         {mnemonic && (
           <>
-            <Mnemonic mnemonic={mnemonic} />
+            <Mnemonic phrase={mnemonic} />
             <CopyToClipboardButton text={mnemonic} />
           </>
         )}

@@ -1,9 +1,9 @@
 interface Props {
-  mnemonic: string;
+  phrase: string;
 }
 
-export default ({ mnemonic }: Props) => (
+export default ({ phrase }: Props) => (
   <div className="mnemonic">
-    {mnemonic}
+    {phrase}
   </div>
 );
