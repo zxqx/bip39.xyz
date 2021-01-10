@@ -150,19 +150,8 @@ button.on-mouse-enter {
 button.on-mouse-leave {
   animation-name: gradient-reverse;
   -webkit-animation-name: gradient-reverse;
-  animation-duration: 2s;
-  -webkit-animation-duration: 2s;
-  animation-iteration-count: 1;
-  -webkit-animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  -webkit-animation-fill-mode: forwards;
-}
-
-button.animation-end {
-  animation-name: gradient;
-  -webkit-animation-name: gradient;
-  animation-duration: 0s;
-  -webkit-animation-duration: 0s;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
   animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
   animation-fill-mode: forwards;
