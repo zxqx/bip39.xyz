@@ -4,6 +4,6 @@ interface Props {
 
 export default ({ phrase }: Props) => (
   <div className="mnemonic">
-    {phrase}
+    <p>{phrase}</p>
   </div>
 );

@@ -1,7 +1,8 @@
 import { useState, useMemo, useCallback } from 'react';
 import { entropyToMnemonic } from 'bip39/bip39';
 import { sha256 } from 'js-sha256';
-import AudioWaveform, { RecordState } from '../../lib/audio-react-recorder/dist/index.modern';
+import { FaExclamationCircle as WarningIcon } from 'react-icons/fa';
+import AudioRecorder, { RecordState } from '../../lib/audio-react-recorder/dist/index.modern';
 import Container from './Container';
 import Mnemonic from './Mnemonic';
 import RecordButton from './RecordButton';
@@ -10,6 +11,8 @@ import RerecordButton from './RerecordButton';
 import { ValueOf } from '../utils/valueOf';
 
 export default () => {
+  const [isMicrophoneAccessGranted, setIsMicrophoneAccessGranted] = useState(false);
+  const [hasMicrophoneError, setHasMicrophoneError] = useState(false);
   const [recordingState, setRecordingState] = useState<ValueOf<typeof RecordState>>(RecordState.STOP);
   const [mnemonic, setMnemonic] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -32,25 +35,39 @@ export default () => {
     setMnemonic(mnemonic);
   }, []);
 
-  const isRecording = useMemo(() => recordingState === RecordState.START, [recordingState]);
+  const isRecording = useMemo(() =>
+    isMicrophoneAccessGranted && recordingState === RecordState.START,
+    [isMicrophoneAccessGranted, recordingState]
+  );
 
   return (
     <>
       <Container>
         <div className={isRecording ? 'visible' : 'hidden'}>
-          <AudioWaveform
+          <AudioRecorder
             state={recordingState}
+            onMicrophoneAccessGranted={() => setIsMicrophoneAccessGranted(true)}
             onStop={onStopRecording}
+            onError={() => setHasMicrophoneError(true)}
             canvasHeight={250}
             foregroundColor="#7237cc"
             backgroundColor="#fff"
           />
         </div>
 
-        {!isRecording && !isProcessing && !mnemonic && (
-          <p className="description">
+        {!isRecording && !isProcessing && !mnemonic && !hasMicrophoneError && (
+          <p>
             Generate a <strong>BIP39 mnemonic phrase</strong> from<br />an audio recording.
           </p>
+        )}
+
+        {hasMicrophoneError && (
+          <div className="microphone-error">
+            <WarningIcon size={90} color="#ffce5c" />
+            <p>
+              Check the <strong>Microphone</strong> permissions in your browser settings and try again.
+            </p>
+          </div>
         )}
 
         {!mnemonic && (
