@@ -12,6 +12,7 @@ import { ValueOf } from '../utils/valueOf';
 export default () => {
   const [recordingState, setRecordingState] = useState<ValueOf<typeof RecordState>>(RecordState.STOP);
   const [mnemonic, setMnemonic] = useState<string | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const startRecording = useCallback(() => {
     setMnemonic(null);
@@ -23,7 +24,9 @@ export default () => {
   }, []);
 
   const onStopRecording = useCallback(async (audioData) => {
+    setIsProcessing(true);
     const arrayBuffer = await audioData.blob.arrayBuffer();
+    setIsProcessing(false);
     const entropyInput = new Int32Array(arrayBuffer).slice(20);
     const mnemonic = entropyToMnemonic(sha256(entropyInput));
     setMnemonic(mnemonic);
@@ -44,7 +47,7 @@ export default () => {
           />
         </div>
 
-        {!isRecording && !mnemonic && (
+        {!isRecording && !isProcessing && !mnemonic && (
           <p className="description">
             Generate a <strong>BIP39 mnemonic phrase</strong> from<br />an audio recording.
           </p>
@@ -53,6 +56,7 @@ export default () => {
         {!mnemonic && (
           <RecordButton
             isRecording={isRecording}
+            isProcessing={isProcessing}
             start={startRecording}
             stop={stopRecording}
           />
