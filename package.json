@@ -4,6 +4,7 @@
   "description": "Generate a BIP39 mnemonic phrase from an audio recording.",
   "main": "src/index.tsx",
   "scripts": {
+    "postinstall": "yarn build:libs",
     "start": "yarn build:libs && webpack serve --config webpack.config.dev.js",
     "build": "yarn build:libs && webpack --config webpack.config.prod.js",
     "build:libs": "cd lib/audio-react-recorder && yarn && yarn build && cd ../../node_modules/bip39 && yarn && yarn compile && cd ../.."
@@ -25,6 +26,7 @@
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
+    "toasty": "^6.0.3",
     "use-events": "^1.4.2"
   },
   "devDependencies": {

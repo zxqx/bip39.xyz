@@ -1794,6 +1794,11 @@ css-select@^2.0.2:
     domutils "^1.7.0"
     nth-check "^1.0.2"
 
+css-transition@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/css-transition/-/css-transition-0.0.2.tgz#26c9b1afb4a8a25b557b476213cb29435c9f6b01"
+  integrity sha1-Jsmxr7SooltVe0diE8spQ1yfawE=
+
 css-what@^3.2.1:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-3.4.2.tgz#ea7026fcb01777edbde52124e21f327e7ae950e4"
@@ -4667,6 +4672,13 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     extend-shallow "^3.0.2"
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
+
+toasty@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/toasty/-/toasty-6.0.3.tgz#cd5e7633092177785f7541f4d362de4260af9665"
+  integrity sha1-zV52Mwkhd3hfdUH002LeQmCvlmU=
+  dependencies:
+    css-transition "0.0.2"
 
 toggle-selection@^1.0.6:
   version "1.0.6"
