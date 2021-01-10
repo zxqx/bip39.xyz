@@ -99,7 +99,7 @@ strong {
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: -20px;
+  top: -25px;
 }
 
 .mnemonic {

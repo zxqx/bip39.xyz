@@ -29,10 +29,10 @@ export default () => {
   const onStopRecording = useCallback(async (audioData) => {
     setIsProcessing(true);
     const arrayBuffer = await audioData.blob.arrayBuffer();
-    setIsProcessing(false);
     const entropyInput = new Int32Array(arrayBuffer).slice(20);
     const mnemonic = entropyToMnemonic(sha256(entropyInput));
     setMnemonic(mnemonic);
+    setIsProcessing(false);
   }, []);
 
   const isRecording = useMemo(() =>
@@ -63,7 +63,7 @@ export default () => {
 
         {hasMicrophoneError && (
           <div className="microphone-error">
-            <WarningIcon size={90} color="#ffce5c" />
+            <WarningIcon size={90} color="#ff3458" />
             <p>
               Check the <strong>Microphone</strong> permissions in your browser settings and try again.
             </p>
