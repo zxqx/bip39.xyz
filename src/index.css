@@ -8,8 +8,6 @@ body {
   font-size: 20px;
   font-weight: 400;
   color: #222;
-  background: url('./images/funky-lines.png'), linear-gradient(#0e0a1d 0%, #0e0a1d 100%);
-  background-blend-mode: overlay;
 }
 
 h1 {
