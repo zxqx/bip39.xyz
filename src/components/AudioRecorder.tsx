@@ -49,10 +49,25 @@ export default () => {
 
   const animationProps = useSpring(renderAnimation);
 
+  const isWaveformVisible = useMemo(() =>
+    isRecording && !mnemonic,
+    [isRecording, !mnemonic]
+  );
+
+  const microphoneErrorAnimationProps = useSpring({
+    opacity: hasMicrophoneError ? 1 : 0,
+    display: hasMicrophoneError ? 'block' : 'none'
+  });
+
+  const waveformAnimationProps = useSpring({
+    opacity: isWaveformVisible ? 1 : 0,
+    display: isWaveformVisible ? 'block' : 'none'
+  });
+
   return (
     <animated.div style={animationProps}>
       <Container>
-        <div className={isRecording && !mnemonic ? 'visible' : 'hidden'}>
+        <animated.div style={waveformAnimationProps}>
           <AudioRecorder
             state={recordingState}
             onMicrophoneAccessGranted={() => setIsMicrophoneAccessGranted(true)}
@@ -62,7 +77,7 @@ export default () => {
             foregroundColor="#ff34f9"
             backgroundColor="#1b153f"
           />
-        </div>
+        </animated.div>
 
         {isInInitialState && (
           <p className="description">
@@ -70,9 +85,9 @@ export default () => {
           </p>
         )}
 
-        {hasMicrophoneError && (
+        <animated.div style={microphoneErrorAnimationProps}>
           <MicrophoneError />
-        )}
+        </animated.div>
 
         <Mnemonic phrase={mnemonic} />
 

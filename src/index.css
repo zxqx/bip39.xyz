@@ -179,12 +179,3 @@ button:active {
   position: relative;
   top: 1px;
 }
-
-.visible {
-  display: block;
-}
-
-.hidden {
-  display: none;
-}
-
