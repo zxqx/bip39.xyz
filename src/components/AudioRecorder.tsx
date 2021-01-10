@@ -43,7 +43,7 @@ export default () => {
   return (
     <>
       <Container>
-        <div className={isRecording ? 'visible' : 'hidden'}>
+        <div className={isRecording && !mnemonic ? 'visible' : 'hidden'}>
           <AudioRecorder
             state={recordingState}
             onMicrophoneAccessGranted={() => setIsMicrophoneAccessGranted(true)}
