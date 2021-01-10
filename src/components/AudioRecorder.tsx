@@ -49,9 +49,9 @@ export default () => {
             onMicrophoneAccessGranted={() => setIsMicrophoneAccessGranted(true)}
             onStop={onStopRecording}
             onError={() => setHasMicrophoneError(true)}
-            canvasHeight={250}
-            foregroundColor="#7237cc"
-            backgroundColor="#fff"
+            canvasHeight={200}
+            foregroundColor="#6804ff"
+            backgroundColor="#171031"
           />
         </div>
 

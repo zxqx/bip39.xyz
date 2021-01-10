@@ -48,49 +48,51 @@
 
 body {
   margin: 0;
+  padding-top: 2em;
+  height: calc(100vh - 2em);
+  display: flex;
+  justify-content: center;
   font-family: Geomanist;
   font-size: 20px;
   font-weight: 400;
   color: #222;
-  background: url('./images/dot-grid-bg.png');
-}
-
-.app-container {
-  padding-top: 2em;
-  width: 100%;
-  height: calc(100vh - 2em);
-  display: flex;
-  justify-content: center;
-  background: rgba(245, 244, 255, 0.4);
+  background: url("https://www.toptal.com/designers/subtlepatterns/patterns/funky-lines.png"), linear-gradient(#0e0a1d 0%, #0e0a1d 100%);
+  background-blend-mode: overlay;
 }
 
 h1 {
   font-size: 36px;
   font-weight: 700;
   text-align: center;
+  visibility: hidden;
 }
 
 .container {
   position: relative;
   margin-top: 1em;
-  padding: 20px 50px 30px;
+  padding: 10px 50px 30px;
   width: 560px;
-  height: 350px;
+  height: 420px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: #171031;
   border-radius: 30px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  opacity: 0.9;
+  box-shadow: 0 0 120px #47299c;
 }
 
 p {
   position: relative;
   top: -10px;
   font-size: 28px;
+  color: #e6e1f3;
   text-align: center;
-  color: #666;
+}
+
+strong {
+  color: #fff;
 }
 
 .microphone-error {
@@ -103,43 +105,59 @@ p {
 
 .mnemonic {
   position: relative;
-  top: -10px;
+  top: -20px;
 }
 
 button {
   position: absolute;
-  bottom: 40px;
+  bottom: 50px;
   padding: 15px 30px;
   width: 222px;
+  height: 5rem;
   font-family: Geomanist;
   font-size: 22px;
   font-weight: 500;
-  background: #7237cc;
-  border: 0;
-  border-radius: 10px;
   color: #fff;
-  transition: background 0.2s;
-}
-
-
-button:hover {
-  background: #8144de;
+  -webkit-appearance: none;
+  background: linear-gradient(to right, #6804ff 0%, #ff4d4d 40%, #ff34f9 70%, #ff3458 100%);
+  background-size: 500%;
+  border: none;
+  border-radius: 5rem;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: .05em;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: pointer;
 }
 
-button:focus {
-  outline: 0;
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+button:hover {
+  animation-name: gradient;
+  -webkit-animation-name: gradient;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
 }
 
 button:active {
-  bottom: 39px;
-  background: #602bb1;
-}
-
-button:disabled {
-  bottom: 40px;
-  background: rgba(114, 55, 204, 0.5);
-  cursor: not-allowed;
+  bottom: 49px;
 }
 
 .copy-button {
@@ -157,12 +175,8 @@ button:disabled {
 }
 
 .rerecord-button {
-  color: #999;
+  color: #9783d4;
   transition: color 0.2s;
-}
-
-.rerecord-button:hover {
-  color: #666;
 }
 
 .rerecord-button:active {
