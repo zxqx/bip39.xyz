@@ -17,13 +17,13 @@ export default () => {
 
   const stopRecording = useCallback(() => {
     setRecordState(RecordState.STOP);
-  }, [])
+  }, []);
 
   const resetRecording = useCallback(() => {
-    setRecordState(RecordState.NONE);
     setMnemonic(null);
     setMnemonicCopied(false);
-  }, [])
+    startRecording();
+  }, []);
 
   const onStopRecording = useCallback(async (audioData) => {
     const arrayBuffer = await audioData.blob.arrayBuffer();
@@ -37,12 +37,12 @@ export default () => {
       <h1>bip39.xyz</h1>
       <div className="container">
 
+          <div className={`${recordState === RecordState.STOP || recordState === RecordState.NONE ? 'hidden' : 'visible'}`}>
+            <AudioReactRecorder state={recordState} onStop={onStopRecording} foregroundColor="#7237cc" backgroundColor="#fff" canvasHeight={250} />
+          </div>
+
         {!mnemonic && (
           <>
-            <div className={`${recordState === RecordState.NONE ? 'hidden' : 'visible'}`}>
-              <AudioReactRecorder state={recordState} onStop={onStopRecording} foregroundColor="#7237cc" backgroundColor="#fff" canvasHeight={250} />
-            </div>
-
             {recordState === RecordState.NONE && (
               <p className="description">Generate a <strong>BIP39 mnemonic phrase</strong> from<br />an audio recording</p>
             )}
