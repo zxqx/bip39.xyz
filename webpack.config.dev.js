@@ -1,5 +1,4 @@
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -45,18 +44,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: './public',
-          filter: async (resourcePath) => {
-            const filename = resourcePath.split('/').pop();
-
-            return filename !== 'index.html';
-          },
-        },
-      ],
-    }),
     new HtmlWebpackPlugin({
       template: './public/index.html'
     }),

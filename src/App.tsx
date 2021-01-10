@@ -44,7 +44,7 @@ export default () => {
             </div>
 
             {recordState === RecordState.NONE && (
-              <p className="description">Generate a BIP39 mnemonic phrase from an audio recording</p>
+              <p className="description">Generate a <strong>BIP39 mnemonic phrase</strong> from<br />an audio recording</p>
             )}
 
             <button
