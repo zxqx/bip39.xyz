@@ -49,12 +49,12 @@ export default () => {
 
             <button
               onClick={
-                recordState === RecordState.STOP || recordState === RecordState.NONE ?
+                recordState === RecordState.NONE ?
                 startRecording :
                 stopRecording
               }
             >
-              {recordState === RecordState.STOP || recordState === RecordState.NONE ?
+              {recordState === RecordState.NONE ?
                 <>
                   <RecordIcon size={16} />
                   <span className="button-text">Record</span>
