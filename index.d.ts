@@ -1,1 +1,1 @@
-declare module 'Recorder';
+declare module 'bip39/bip39';

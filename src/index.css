@@ -141,16 +141,16 @@ button:active {
   text-align: center;
 }
 
-.reset-link {
+.rerecord-button {
   color: #999;
   transition: color 0.2s;
 }
 
-.reset-link:hover {
+.rerecord-button:hover {
   color: #666;
 }
 
-.reset-link:active {
+.rerecord-button:active {
   position: relative;
   top: 1px;
 }
