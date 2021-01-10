@@ -9,6 +9,7 @@ import ActionButton from './ActionButton';
 import RerecordButton from './RerecordButton';
 import MicrophoneError from './MicrophoneError';
 import Footer from './Footer';
+import renderAnimation from '../constants/renderAnimation';
 import { ValueOf } from '../utils/valueOf';
 
 export default () => {
@@ -46,16 +47,7 @@ export default () => {
     [isRecording, isProcessing, mnemonic, hasMicrophoneError]
   );
 
-  const animationProps = useSpring({
-    from: {
-      opacity: 0,
-      marginTop: '0em',
-    },
-    to: {
-      opacity: 1,
-      marginTop: '2em',
-    }
-  });
+  const animationProps = useSpring(renderAnimation);
 
   return (
     <animated.div style={animationProps}>

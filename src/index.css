@@ -15,6 +15,9 @@ h1 {
   font-weight: 700;
   color: #e6e1f3;
   text-align: center;
+}
+
+h1 span {
   cursor: pointer;
 }
 
