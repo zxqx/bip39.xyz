@@ -21,6 +21,12 @@ h1 span {
   cursor: pointer;
 }
 
+h1 .tld {
+  margin-left: -3px;
+  font-size: 24px;
+  color: #e6e1f3cc;
+}
+
 .container {
   position: relative;
   padding: 10px 50px 30px;
