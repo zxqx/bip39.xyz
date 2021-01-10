@@ -1,0 +1,49 @@
+{
+  "name": "bip39.xyz",
+  "version": "1.0.0",
+  "description": "Generate a BIP39 mnemonic phrase from an audio recording.",
+  "main": "src/index.tsx",
+  "scripts": {
+    "start": "yarn build:libs && webpack serve --config webpack.config.dev.js",
+    "build": "yarn build:libs && webpack --config webpack.config.prod.js",
+    "build:libs": "cd lib/audio-react-recorder && yarn && yarn build && cd ../../node_modules/bip39 && yarn && yarn compile && cd ../.."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zakangelle/bip39.xyz.git"
+  },
+  "author": "Zak Angelle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zakangelle/bip39.xyz/issues"
+  },
+  "homepage": "https://github.com/zakangelle/bip39.xyz#readme",
+  "dependencies": {
+    "bip39": "coinkite/bip39",
+    "js-sha256": "^0.9.0",
+    "react": "^17.0.1",
+    "react-copy-to-clipboard": "^5.0.2",
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^7.0.0",
+    "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.1",
+    "mini-css-extract-plugin": "^1.3.3",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^8.0.14",
+    "typescript": "^4.1.3",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.12.2",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.1"
+  }
+}

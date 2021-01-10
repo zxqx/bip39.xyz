@@ -1,0 +1,165 @@
+@font-face {
+  font-family: Geomanist;
+  src: url('./fonts/geomanist-bold-webfont.eot');
+  src: url('./fonts/geomanist-bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('./fonts/geomanist-bold-webfont.woff2') format('woff2'),
+       url('./fonts/geomanist-bold-webfont.woff') format('woff'),
+       url('./fonts/geomanist-bold-webfont.ttf') format('truetype'),
+       url('./fonts/geomanist-bold-webfont.svg#geomanistregular') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: Geomanist;
+    src: url('./fonts/geomanist-book-webfont.eot');
+    src: url('./fonts/geomanist-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/geomanist-book-webfont.woff2') format('woff2'),
+         url('./fonts/geomanist-book-webfont.woff') format('woff'),
+         url('./fonts/geomanist-book-webfont.ttf') format('truetype'),
+         url('./fonts/geomanist-book-webfont.svg#geomanistregular') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Geomanist;
+    src: url('./fonts/geomanist-regular-webfont.eot');
+    src: url('./fonts/geomanist-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/geomanist-regular-webfont.woff2') format('woff2'),
+         url('./fonts/geomanist-regular-webfont.woff') format('woff'),
+         url('./fonts/geomanist-regular-webfont.ttf') format('truetype'),
+         url('./fonts/geomanist-regular-webfont.svg#geomanistregular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Geomanist;
+    src: url('./fonts/geomanist-light-webfont.eot');
+    src: url('./fonts/geomanist-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/geomanist-light-webfont.woff2') format('woff2'),
+         url('./fonts/geomanist-light-webfont.woff') format('woff'),
+         url('./fonts/geomanist-light-webfont.ttf') format('truetype'),
+         url('./fonts/geomanist-light-webfont.svg#geomanistregular') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: Geomanist;
+  font-size: 20px;
+  font-weight: 400;
+  color: #222;
+  background: url('./images/dot-grid-bg.png');
+}
+
+.app-container {
+  padding-top: 2em;
+  width: 100%;
+  height: calc(100vh - 1.5em);
+  display: flex;
+  justify-content: center;
+  background: rgba(245, 244, 255, 0.4);
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  margin-top: 2em;
+  padding: 30px 50px;
+  width: 560px;
+  height: 350px;
+  border-radius: 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.description, .mnemonic {
+  position: relative;
+  top: -10px;
+  font-size: 28px;
+  text-align: center;
+  color: #666;
+}
+
+.mnemonic {
+  top: -20px;
+}
+
+button {
+  position: absolute;
+  bottom: 40px;
+  padding: 15px 30px;
+  width: 222px;
+  font-family: Geomanist;
+  font-size: 22px;
+  font-weight: 500;
+  background: #7237cc;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+
+button:hover {
+  background: #8144de;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:active {
+  background: #602bb1;
+  bottom: 39px;
+}
+
+.copy-button {
+  width: 300px;
+}
+
+.button-text {
+  display: inline-block;
+  margin-left: 12px;
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.reset-link {
+  color: #999;
+  transition: color 0.2s;
+}
+
+.reset-link:hover {
+  color: #666;
+}
+
+.reset-link:active {
+  position: relative;
+  top: 1px;
+}
+
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
