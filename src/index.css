@@ -104,14 +104,14 @@ strong {
 
 .mnemonic {
   position: relative;
-  top: -20px;
+  top: -10px;
 }
 
 button {
   position: absolute;
   bottom: 50px;
   padding: 15px 30px;
-  width: 222px;
+  min-width: 250px;
   height: 5rem;
   font-family: Geomanist;
   font-size: 22px;
@@ -135,6 +135,39 @@ button {
   cursor: pointer;
 }
 
+button.on-mouse-enter {
+  animation-name: gradient;
+  -webkit-animation-name: gradient;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+button.on-mouse-leave {
+  animation-name: gradient-reverse;
+  -webkit-animation-name: gradient-reverse;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+button.animation-end {
+  animation-name: gradient;
+  -webkit-animation-name: gradient;
+  animation-duration: 0s;
+  -webkit-animation-duration: 0s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -144,15 +177,13 @@ button {
   }
 }
 
-button:hover {
-  animation-name: gradient;
-  -webkit-animation-name: gradient;
-  animation-duration: 2s;
-  -webkit-animation-duration: 2s;
-  animation-iteration-count: 1;
-  -webkit-animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  -webkit-animation-fill-mode: forwards;
+@keyframes gradient-reverse {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 button:active {

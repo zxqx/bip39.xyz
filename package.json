@@ -24,7 +24,8 @@
     "react": "^17.0.1",
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^17.0.1",
-    "react-icons": "^4.1.0"
+    "react-icons": "^4.1.0",
+    "use-events": "^1.4.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.11",

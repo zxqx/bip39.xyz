@@ -5,8 +5,7 @@ import { FaExclamationCircle as WarningIcon } from 'react-icons/fa';
 import AudioRecorder, { RecordState } from '../../lib/audio-react-recorder/dist/index.modern';
 import Container from './Container';
 import Mnemonic from './Mnemonic';
-import RecordButton from './RecordButton';
-import CopyToClipboardButton from './CopyToClipboardButton';
+import ActionButton from './ActionButton';
 import RerecordButton from './RerecordButton';
 import { ValueOf } from '../utils/valueOf';
 
@@ -70,21 +69,18 @@ export default () => {
           </div>
         )}
 
-        {!mnemonic && (
-          <RecordButton
-            isRecording={isRecording}
-            isProcessing={isProcessing}
-            start={startRecording}
-            stop={stopRecording}
-          />
+        {mnemonic && (
+          <Mnemonic phrase={mnemonic} />
         )}
 
-        {mnemonic && (
-          <>
-            <Mnemonic phrase={mnemonic} />
-            <CopyToClipboardButton text={mnemonic} />
-          </>
-        )}
+        <ActionButton
+          isRecording={isRecording}
+          isProcessing={isProcessing}
+          start={startRecording}
+          stop={stopRecording}
+          mnemonic={mnemonic}
+        />
+
       </Container>
 
       <div className="footer">
