@@ -6,13 +6,19 @@ interface Props {
 
 export default ({ phrase }: Props) => {
   const animationProps = useSpring({
-    opacity: phrase ? 1 : 0
+    opacity: phrase ? 1 : 0,
   });
 
   return (
     <animated.div style={animationProps}>
       <div className="mnemonic">
-        <p>{phrase}</p>
+        {phrase && (
+          <>
+          <h2>Mnemonic phrase</h2>
+
+          <p>{phrase}</p>
+          </>
+        )}
       </div>
     </animated.div>
   );

@@ -27,9 +27,26 @@ h1 .tld {
   color: #e6e1f3cc;
 }
 
+h2 {
+  margin: 0 0 45px;
+  color: #e6e1f3;
+  text-align: center;
+}
+
+p {
+  font-size: 24px;
+  line-height: 38px;
+  color: #e6e1f3;
+  text-align: center;
+}
+
+strong {
+  color: #fff;
+}
+
 .container {
   position: relative;
-  padding: 10px 50px 30px;
+  padding: 0 50px 30px;
   width: 560px;
   height: 420px;
   display: flex;
@@ -41,25 +58,24 @@ h1 .tld {
   box-shadow: 0 0 120px #47299c;
 }
 
-p {
+.audio-react-recorder {
   position: relative;
-  top: -5px;
-  font-size: 24px;
-  line-height: 38px;
-  color: #e6e1f3;
-  text-align: center;
-}
-
-strong {
-  color: #fff;
+  top: 16px;
 }
 
 .microphone-error {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: -25px;
+}
+
+.description {
+  position: relative;
+  top: 20px;
+}
+
+.mnemonic {
+  margin-bottom: 60px;
 }
 
 .mnemonic p {

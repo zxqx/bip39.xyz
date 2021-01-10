@@ -65,7 +65,7 @@ export default () => {
         </div>
 
         {isInInitialState && (
-          <p>
+          <p className="description">
             Generate a <strong>BIP39 mnemonic phrase</strong><br />from an audio recording.
           </p>
         )}
