@@ -8,7 +8,7 @@ interface Props {
   isProcessing: boolean;
   start: () => void;
   stop: () => void;
-  mnemonic: string | null;
+  mnemonic: string;
 }
 
 export default ({
@@ -46,7 +46,7 @@ export default ({
 
   return (
     <CopyToClipboard
-      text={mnemonic || ''}
+      text={mnemonic}
       onCopy={() => mnemonic && setCopied(true)}
     >
       <button

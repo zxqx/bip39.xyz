@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback } from 'react';
 import { entropyToMnemonic } from 'bip39/bip39';
 import { sha256 } from 'js-sha256';
+import { useSpring, animated } from 'react-spring';
 import AudioRecorder, { RecordState } from '../../lib/audio-react-recorder/dist/index.modern';
 import Container from './Container';
 import Mnemonic from './Mnemonic';
@@ -14,11 +15,11 @@ export default () => {
   const [isMicrophoneAccessGranted, setIsMicrophoneAccessGranted] = useState(false);
   const [hasMicrophoneError, setHasMicrophoneError] = useState(false);
   const [recordingState, setRecordingState] = useState<ValueOf<typeof RecordState>>(RecordState.STOP);
-  const [mnemonic, setMnemonic] = useState<string | null>(null);
+  const [mnemonic, setMnemonic] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
 
   const startRecording = useCallback(() => {
-    setMnemonic(null);
+    setMnemonic('');
     setRecordingState(RecordState.START);
   }, []);
 
@@ -45,8 +46,19 @@ export default () => {
     [isRecording, isProcessing, mnemonic, hasMicrophoneError]
   );
 
+  const animationProps = useSpring({
+    from: {
+      opacity: 0,
+      marginTop: '0em',
+    },
+    to: {
+      opacity: 1,
+      marginTop: '2em',
+    }
+  });
+
   return (
-    <>
+    <animated.div style={animationProps}>
       <Container>
         <div className={isRecording && !mnemonic ? 'visible' : 'hidden'}>
           <AudioRecorder
@@ -70,9 +82,7 @@ export default () => {
           <MicrophoneError />
         )}
 
-        {mnemonic && (
-          <Mnemonic phrase={mnemonic} />
-        )}
+        <Mnemonic phrase={mnemonic} />
 
         <ActionButton
           isRecording={isRecording}
@@ -88,6 +98,6 @@ export default () => {
           <RerecordButton start={startRecording} />
         )}
       </Footer>
-    </>
+    </animated.div>
   );
 }
