@@ -1,12 +1,13 @@
 import { useState, useMemo, useCallback } from 'react';
 import { entropyToMnemonic } from 'bip39/bip39';
 import { sha256 } from 'js-sha256';
-import { FaExclamationCircle as WarningIcon } from 'react-icons/fa';
 import AudioRecorder, { RecordState } from '../../lib/audio-react-recorder/dist/index.modern';
 import Container from './Container';
 import Mnemonic from './Mnemonic';
 import ActionButton from './ActionButton';
 import RerecordButton from './RerecordButton';
+import MicrophoneError from './MicrophoneError';
+import Footer from './Footer';
 import { ValueOf } from '../utils/valueOf';
 
 export default () => {
@@ -25,10 +26,10 @@ export default () => {
     setRecordingState(RecordState.STOP);
   }, []);
 
-  const onStopRecording = useCallback(async (audioData) => {
+  const onStopRecording = useCallback(async (recording) => {
     setIsProcessing(true);
-    const arrayBuffer = await audioData.blob.arrayBuffer();
-    const entropyInput = new Int32Array(arrayBuffer).slice(20);
+    const audioData = await recording.blob.arrayBuffer();
+    const entropyInput = new Int32Array(audioData).slice(20);
     const mnemonic = entropyToMnemonic(sha256(entropyInput));
     setMnemonic(mnemonic);
     setIsProcessing(false);
@@ -37,6 +38,11 @@ export default () => {
   const isRecording = useMemo(() =>
     isMicrophoneAccessGranted && recordingState === RecordState.START,
     [isMicrophoneAccessGranted, recordingState]
+  );
+
+  const isInInitialState = useMemo(() =>
+    !isRecording && !isProcessing && !mnemonic && !hasMicrophoneError,
+    [isRecording, isProcessing, mnemonic, hasMicrophoneError]
   );
 
   return (
@@ -54,19 +60,14 @@ export default () => {
           />
         </div>
 
-        {!isRecording && !isProcessing && !mnemonic && !hasMicrophoneError && (
+        {isInInitialState && (
           <p>
             Generate a <strong>BIP39 mnemonic phrase</strong> from<br />an audio recording.
           </p>
         )}
 
         {hasMicrophoneError && (
-          <div className="microphone-error">
-            <WarningIcon size={90} color="#ff3458" />
-            <p>
-              Check the <strong>Microphone</strong> permissions in your browser settings and try again.
-            </p>
-          </div>
+          <MicrophoneError />
         )}
 
         {mnemonic && (
@@ -80,14 +81,13 @@ export default () => {
           stop={stopRecording}
           mnemonic={mnemonic}
         />
-
       </Container>
 
-      <div className="footer">
+      <Footer>
         {mnemonic && (
           <RerecordButton start={startRecording} />
         )}
-      </div>
+      </Footer>
     </>
   );
 }

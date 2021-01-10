@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
-import useHover from '../hooks/useHover';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FaCircle as RecordIcon, FaStop as StopIcon, FaClipboard as CopyIcon } from 'react-icons/fa';
+import useHover from '../hooks/useHover';
 
 interface Props {
   isRecording: boolean;
@@ -35,6 +35,11 @@ export default ({
     }
   }, [isRecording, isProcessing, mnemonic, start, stop]);
 
+  const isInInitialState = useMemo(() =>
+    !isRecording && !isProcessing && !mnemonic,
+    [isRecording, isProcessing, mnemonic]
+  );
+
   useEffect(() => {
     setCopied(false);
   }, [mnemonic]);
@@ -50,7 +55,7 @@ export default ({
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
-        {!isRecording && !isProcessing && !mnemonic && (
+        {isInInitialState && (
           <>
             <RecordIcon size={16} />
             <span className="button-text">Record</span>
