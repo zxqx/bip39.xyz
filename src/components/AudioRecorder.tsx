@@ -74,7 +74,7 @@ export default () => {
 
         {isInInitialState && (
           <p>
-            Generate a <strong>BIP39 mnemonic phrase</strong> from<br />an audio recording.
+            Generate a <strong>BIP39 mnemonic phrase</strong><br />from an audio recording.
           </p>
         )}
 
