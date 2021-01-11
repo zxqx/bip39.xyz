@@ -57,21 +57,21 @@ export default ({
       >
         {isInInitialState && (
           <>
-            <RecordIcon className="record-icon" size={16} />
+            <RecordIcon className="record-icon" size={14} />
             <span className="button-text">Record</span>
           </>
         )}
 
         {(isRecording || isProcessing) && (
           <>
-            <StopIcon className="stop-icon" size={16} />
+            <StopIcon className="stop-icon" size={14} />
             <span className="button-text">Stop</span>
           </>
         )}
 
         {mnemonic && (
           <>
-            <CopyIcon size={16} />
+            <CopyIcon size={14} />
 
             <span className="button-text">
               {copied ? 'Copied!' : 'Copy to clipboard'}
