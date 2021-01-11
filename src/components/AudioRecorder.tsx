@@ -74,7 +74,7 @@ export default () => {
             onStop={onStopRecording}
             onError={() => setHasMicrophoneError(true)}
             canvasHeight={200}
-            foregroundColor="#ff34f9"
+            foregroundColor="#eb4ca8"
             backgroundColor="#0d0620"
           />
         </animated.div>
