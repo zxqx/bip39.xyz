@@ -57,14 +57,14 @@ export default ({
       >
         {isInInitialState && (
           <>
-            <RecordIcon size={16} />
+            <RecordIcon className="record-icon" size={16} />
             <span className="button-text">Record</span>
           </>
         )}
 
         {(isRecording || isProcessing) && (
           <>
-            <StopIcon size={16} />
+            <StopIcon className="stop-icon" size={16} />
             <span className="button-text">Stop</span>
           </>
         )}

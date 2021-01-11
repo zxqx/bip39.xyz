@@ -173,6 +173,12 @@ button:active {
   margin-left: 12px;
 }
 
+.record-icon,
+.stop-icon {
+  position: relative;
+  top: 1px;
+}
+
 .footer {
   margin-top: 20px;
   text-align: center;
