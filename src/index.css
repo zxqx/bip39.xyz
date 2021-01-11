@@ -44,6 +44,14 @@ strong {
   color: #fff;
 }
 
+::selection {
+  background: #ff34f9;
+}
+
+::-moz-selection {
+  background: #ff34f9;
+}
+
 .container {
   position: relative;
   padding: 0 50px 30px;
