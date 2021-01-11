@@ -171,6 +171,7 @@ button:active {
 }
 
 .rerecord-button {
+  font-size: 18px;
   color: #9783d4;
   transition: color 0.2s;
 }
