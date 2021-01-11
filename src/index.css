@@ -83,7 +83,7 @@ strong {
 }
 
 .mnemonic {
-  margin-bottom: 42px;
+  margin-bottom: 40px;
 }
 
 .mnemonic p {
@@ -190,7 +190,12 @@ button:active {
   transition: color 0.2s;
 }
 
+.rerecord-button:hover {
+  color: #bfb1ea;
+}
+
 .rerecord-button:active {
   position: relative;
   top: 1px;
+  color: #bfb1ea;
 }
