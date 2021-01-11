@@ -75,7 +75,7 @@ export default () => {
             onError={() => setHasMicrophoneError(true)}
             canvasHeight={200}
             foregroundColor="#ff34f9"
-            backgroundColor="#0c001b"
+            backgroundColor="#0d0620"
           />
         </animated.div>
 
