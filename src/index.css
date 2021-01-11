@@ -89,9 +89,9 @@ button {
   bottom: 50px;
   padding: 15px 30px;
   min-width: 250px;
-  height: 5rem;
+  height: 4.5rem;
   font-family: 'Roboto Mono', Courier, monospace;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   color: #fff;
   -webkit-appearance: none;
@@ -157,7 +157,7 @@ button:active {
 }
 
 .copy-button {
-  width: 360px;
+  width: 320px;
 }
 
 .button-text {
