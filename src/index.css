@@ -107,8 +107,7 @@ strong {
 
 .description {
   position: relative;
-  top: 18px;
-  width: 95%;
+  top: 12px;
 }
 
 @media (max-width: 600px) {
