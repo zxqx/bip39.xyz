@@ -117,7 +117,7 @@ export default () => {
       </Container>
 
       <Footer>
-        {isInInitialState && <DownloadArchiveButton />}
+        {!mnemonic && <DownloadArchiveButton />}
         {mnemonic && <RerecordButton start={startRecording} />}
       </Footer>
     </animated.div>
