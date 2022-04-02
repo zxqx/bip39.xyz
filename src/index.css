@@ -12,6 +12,12 @@ body {
   color: #222;
 }
 
+@media (max-width: 600px) {
+  body {
+    padding-top: 0.8em;
+  }
+}
+
 h1 {
   font-size: 32px;
   font-weight: 700;
