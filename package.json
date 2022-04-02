@@ -1,7 +1,7 @@
 {
   "name": "bip39.xyz",
   "version": "1.0.0",
-  "description": "Generate a BIP39 mnemonic phrase from an audio recording.",
+  "description": "Generate a mnemonic phrase for your wallet from an audio recording.",
   "main": "src/index.tsx",
   "scripts": {
     "postinstall": "yarn build:libs",
