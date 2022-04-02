@@ -6,9 +6,9 @@
   "scripts": {
     "postinstall": "yarn build:libs",
     "start": "yarn build:libs && webpack serve --config webpack.config.dev.js",
-    "build": "yarn build:libs && webpack --config webpack.config.prod.js",
+    "build": "yarn build:libs && webpack --config webpack.config.prod.js && yarn archive",
     "build:libs": "cd lib/audio-react-recorder && yarn && yarn build && cd ../../node_modules/bip39 && yarn && yarn compile && cd ../..",
-    "archive": "yarn build && node scripts/archive.js"
+    "archive": "node scripts/archive.js"
   },
   "repository": {
     "type": "git",
