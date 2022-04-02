@@ -1,6 +1,8 @@
 body {
   margin: 0;
   padding-top: 1.8em;
+  padding-left: 1.8em;
+  padding-right: 1.8em;
   height: calc(100vh - 1.8em);
   display: flex;
   justify-content: center;
@@ -57,6 +59,7 @@ strong {
   padding: 0 45px 27px;
   width: 504px;
   height: 378px;
+  min-height: 378px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,12 +69,31 @@ strong {
   box-shadow: 0 0 108px #47299c;
 }
 
+@media (max-width: 700px) {
+  .container {
+    box-sizing: border-box;
+    width: calc(100vw - 4em);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 45px;
+    height: auto;
+  }
+}
+
+.audio-recorder-container {
+  overflow: hidden;
+}
+
 .audio-react-recorder {
   position: relative;
   top: 14px;
 }
 
-.microphone-error {
+.microphone-error,
+.microphone-request-message {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,10 +102,23 @@ strong {
 .description {
   position: relative;
   top: 18px;
+  width: 95%;
+}
+
+@media (max-width: 600px) {
+  .description {
+    top: 0;
+  }
 }
 
 .mnemonic {
   margin-bottom: 40px;
+}
+
+@media (max-width: 600px) {
+  .mnemonic {
+    margin-bottom: 80px;
+  }
 }
 
 .mnemonic p {
@@ -118,6 +153,19 @@ button {
   -ms-user-select: none;
   user-select: none;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  button {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  button {
+    width: calc(100% - 90px);
+    min-width: auto;
+  }
 }
 
 button.on-mouse-enter {
@@ -168,6 +216,12 @@ button:active {
   width: 288px;
 }
 
+@media (max-width: 400px) {
+  .copy-button {
+    width: calc(100% - 90px);
+  }
+}
+
 .button-text {
   display: inline-block;
   margin-left: 11px;
@@ -181,6 +235,7 @@ button:active {
 
 .footer {
   margin-top: 16px;
+  padding-bottom: 60px;
   text-align: center;
 }
 

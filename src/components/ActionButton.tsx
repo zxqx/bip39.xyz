@@ -1,6 +1,11 @@
 import { useState, useEffect, useMemo } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { FaCircle as RecordIcon, FaStop as StopIcon, FaClipboard as CopyIcon } from 'react-icons/fa';
+import { useMediaQuery } from 'react-responsive';
+import {
+  FaCircle as RecordIcon,
+  FaStop as StopIcon,
+  FaClipboard as CopyIcon,
+} from 'react-icons/fa';
 import useHover from '../hooks/useHover';
 
 interface Props {
@@ -11,15 +16,13 @@ interface Props {
   mnemonic: string;
 }
 
-export default ({
-  isRecording,
-  isProcessing,
-  start,
-  stop,
-  mnemonic
-}: Props) => {
+export default ({ isRecording, isProcessing, start, stop, mnemonic }: Props) => {
   const { onMouseEnter, onMouseLeave, hoverClasses } = useHover();
   const [copied, setCopied] = useState(false);
+
+  const isXSmallViewport = useMediaQuery({
+    query: '(max-width: 400px)',
+  });
 
   const onClick = useMemo(() => {
     if (isRecording || isProcessing) {
@@ -35,20 +38,18 @@ export default ({
     }
   }, [isRecording, isProcessing, mnemonic, start, stop]);
 
-  const isInInitialState = useMemo(() =>
-    !isRecording && !isProcessing && !mnemonic,
-    [isRecording, isProcessing, mnemonic]
-  );
+  const isInInitialState = useMemo(() => !isRecording && !isProcessing && !mnemonic, [
+    isRecording,
+    isProcessing,
+    mnemonic,
+  ]);
 
   useEffect(() => {
     setCopied(false);
   }, [mnemonic]);
 
   return (
-    <CopyToClipboard
-      text={mnemonic}
-      onCopy={() => mnemonic && setCopied(true)}
-    >
+    <CopyToClipboard text={mnemonic || ' '} onCopy={() => mnemonic && setCopied(true)}>
       <button
         onClick={onClick}
         className={`${mnemonic && 'copy-button'} ${hoverClasses}`}
@@ -74,7 +75,7 @@ export default ({
             <CopyIcon size={14} />
 
             <span className="button-text">
-              {copied ? 'Copied!' : 'Copy to clipboard'}
+              {copied ? 'Copied!' : isXSmallViewport ? 'Copy' : 'Copy to clipboard'}
             </span>
           </>
         )}
