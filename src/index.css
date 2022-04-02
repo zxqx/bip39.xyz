@@ -107,7 +107,7 @@ button {
   background-size: 500%;
   border: none;
   border-radius: 5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0;
