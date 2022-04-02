@@ -9,6 +9,7 @@ import AudioRecorder, { RecordState } from '../../lib/audio-react-recorder/dist/
 import Container from './Container';
 import Mnemonic from './Mnemonic';
 import ActionButton from './ActionButton';
+import DownloadArchiveButton from './DownloadArchiveButton';
 import RerecordButton from './RerecordButton';
 import MicrophoneError from './MicrophoneError';
 import Footer from './Footer';
@@ -115,7 +116,10 @@ export default () => {
         />
       </Container>
 
-      <Footer>{mnemonic && <RerecordButton start={startRecording} />}</Footer>
+      <Footer>
+        {isInInitialState && <DownloadArchiveButton />}
+        {mnemonic && <RerecordButton start={startRecording} />}
+      </Footer>
     </animated.div>
   );
 };

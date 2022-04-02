@@ -244,17 +244,20 @@ button:active {
   text-align: center;
 }
 
-.rerecord-button {
+.rerecord-button,
+.download-archive-button {
   font-size: 16px;
   color: #9783d4;
   transition: color 0.2s;
 }
 
-.rerecord-button:hover {
+.rerecord-button:hover,
+.download-archive-button:hover {
   color: #bfb1ea;
 }
 
-.rerecord-button:active {
+.rerecord-button:active,
+.download-archive-button:active {
   position: relative;
   top: 1px;
   color: #bfb1ea;

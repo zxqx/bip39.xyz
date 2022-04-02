@@ -7,7 +7,8 @@
     "postinstall": "yarn build:libs",
     "start": "yarn build:libs && webpack serve --config webpack.config.dev.js",
     "build": "yarn build:libs && webpack --config webpack.config.prod.js",
-    "build:libs": "cd lib/audio-react-recorder && yarn && yarn build && cd ../../node_modules/bip39 && yarn && yarn compile && cd ../.."
+    "build:libs": "cd lib/audio-react-recorder && yarn && yarn build && cd ../../node_modules/bip39 && yarn && yarn compile && cd ../..",
+    "archive": "yarn build && node scripts/archive.js"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,7 @@
     "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.0.1",
     "file-loader": "^6.2.0",
+    "fs-extra": "^10.0.1",
     "html-webpack-plugin": "^4.5.1",
     "mini-css-extract-plugin": "^1.3.3",
     "style-loader": "^2.0.0",
@@ -53,6 +55,7 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.12.2",
     "webpack-cli": "^4.3.1",
-    "webpack-dev-server": "^3.11.1"
+    "webpack-dev-server": "^3.11.1",
+    "zip-a-folder": "^1.1.3"
   }
 }
