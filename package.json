@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zakangelle/bip39.xyz.git"
+    "url": "git+https://github.com/zxqx/bip39.xyz.git"
   },
-  "author": "Zak Angelle",
+  "author": "zxqx",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zakangelle/bip39.xyz/issues"
+    "url": "https://github.com/zxqx/bip39.xyz/issues"
   },
-  "homepage": "https://github.com/zakangelle/bip39.xyz#readme",
+  "homepage": "https://github.com/zxqx/bip39.xyz#readme",
   "dependencies": {
     "bip39": "coinkite/bip39",
     "js-sha256": "^0.9.0",
