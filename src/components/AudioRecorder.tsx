@@ -5,6 +5,7 @@ import useDimensions from 'react-use-dimensions';
 import { useSpring, animated } from 'react-spring';
 import AudioRecorder, { RecordState } from '../../lib/audio-react-recorder/dist/index.modern';
 import Container from './Container';
+import Description from './Description';
 import Mnemonic from './Mnemonic';
 import ActionButton from './ActionButton';
 import DownloadArchiveButton from './DownloadArchiveButton';
@@ -18,14 +19,22 @@ export default () => {
   const [containerRef, { width: containerWidth }] = useDimensions();
   const [isMicrophoneAccessGranted, setIsMicrophoneAccessGranted] = useState(false);
   const [hasMicrophoneError, setHasMicrophoneError] = useState(false);
+  const [isRecordingCancelled, setIsRecordingCancelled] = useState(false);
   const [recordingState, setRecordingState] = useState<ValueOf<typeof RecordState>>(
     RecordState.STOP
   );
   const [mnemonic, setMnemonic] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
 
+  const reset = useCallback(() => {
+    setMnemonic('');
+    setIsRecordingCancelled(true);
+    stopRecording();
+  }, []);
+
   const startRecording = useCallback(() => {
     setMnemonic('');
+    setIsRecordingCancelled(false);
     setRecordingState(RecordState.START);
   }, []);
 
@@ -33,15 +42,22 @@ export default () => {
     setRecordingState(RecordState.STOP);
   }, []);
 
-  const onStopRecording = useCallback(async (recording) => {
-    setIsProcessing(true);
-    const audioData = await recording.blob.arrayBuffer();
-    const entropyInput = new Int32Array(audioData).slice(20);
-    const entropy = sha256(entropyInput);
-    const mnemonic = entropyToMnemonic(entropy);
-    setMnemonic(mnemonic);
-    setIsProcessing(false);
-  }, []);
+  const onStopRecording = useCallback(
+    async (recording) => {
+      if (isRecordingCancelled) {
+        return false;
+      }
+
+      setIsProcessing(true);
+      const audioData = await recording.blob.arrayBuffer();
+      const entropyInput = new Int32Array(audioData).slice(20);
+      const entropy = sha256(entropyInput);
+      const mnemonic = entropyToMnemonic(entropy);
+      setMnemonic(mnemonic);
+      setIsProcessing(false);
+    },
+    [isRecordingCancelled]
+  );
 
   const isRecording = useMemo(
     () => isMicrophoneAccessGranted && !hasMicrophoneError && recordingState === RecordState.START,
@@ -72,52 +88,58 @@ export default () => {
   });
 
   return (
-    <animated.div style={animationProps}>
-      <Container ref={containerRef} isVisible={isRecording}>
-        <animated.div style={waveformAnimationProps}>
-          <div
-            className="audio-recorder-container"
-            style={{ width: containerWidth ? containerWidth - 90 : 'auto' }}
-          >
-            <AudioRecorder
-              state={recordingState}
-              onMicrophoneAccessGranted={() => setIsMicrophoneAccessGranted(true)}
-              onMicrophoneAccessRejected={() => setIsMicrophoneAccessGranted(true)}
-              onStop={onStopRecording}
-              onError={() => setHasMicrophoneError(true)}
-              canvasWidth={500}
-              canvasHeight={200}
-              foregroundColor="#eb4ca8"
-              backgroundColor="#0d0620"
-            />
-          </div>
-        </animated.div>
+    <>
+      <animated.div style={animationProps}>
+        <h1>
+          <span onClick={() => reset()}>
+            bip39<span className="tld">.xyz</span>
+          </span>
+        </h1>
+      </animated.div>
 
-        {isInInitialState && (
-          <p className="description">
-            Generate a <strong>mnemonic phrase</strong> for your wallet from an audio recording.
-          </p>
-        )}
+      <animated.div style={animationProps}>
+        <Container ref={containerRef} isVisible={isRecording}>
+          <animated.div style={waveformAnimationProps}>
+            <div
+              className="audio-recorder-container"
+              style={{ width: containerWidth ? containerWidth - 90 : 'auto' }}
+            >
+              <AudioRecorder
+                state={recordingState}
+                onMicrophoneAccessGranted={() => setIsMicrophoneAccessGranted(true)}
+                onMicrophoneAccessRejected={() => setIsMicrophoneAccessGranted(true)}
+                onStop={onStopRecording}
+                onError={() => setHasMicrophoneError(true)}
+                canvasWidth={500}
+                canvasHeight={200}
+                foregroundColor="#eb4ca8"
+                backgroundColor="#0d0620"
+              />
+            </div>
+          </animated.div>
 
-        <animated.div style={microphoneErrorAnimationProps}>
-          <MicrophoneError />
-        </animated.div>
+          {isInInitialState && <Description />}
 
-        <Mnemonic phrase={mnemonic} />
+          <animated.div style={microphoneErrorAnimationProps}>
+            <MicrophoneError />
+          </animated.div>
 
-        <ActionButton
-          isRecording={isRecording}
-          isProcessing={isProcessing}
-          start={startRecording}
-          stop={stopRecording}
-          mnemonic={mnemonic}
-        />
-      </Container>
+          <Mnemonic phrase={mnemonic} />
 
-      <Footer>
-        {!mnemonic && window.location.href.startsWith('http') && <DownloadArchiveButton />}
-        {mnemonic && <RerecordButton start={startRecording} />}
-      </Footer>
-    </animated.div>
+          <ActionButton
+            isRecording={isRecording}
+            isProcessing={isProcessing}
+            start={startRecording}
+            stop={stopRecording}
+            mnemonic={mnemonic}
+          />
+        </Container>
+
+        <Footer>
+          {!mnemonic && window.location.href.startsWith('http') && <DownloadArchiveButton />}
+          {mnemonic && <RerecordButton start={startRecording} />}
+        </Footer>
+      </animated.div>
+    </>
   );
 };

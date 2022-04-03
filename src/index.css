@@ -167,7 +167,7 @@ strong {
     1;
   animation: 2s rotate linear infinite;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   z-index: -1;
 }
 
