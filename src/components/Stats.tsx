@@ -34,7 +34,11 @@ export default ({ score, crackTime }: Props) => {
         <strong>{STRENGTHS[score]}</strong>
       </div>
 
-      <div className={`strength-indicator ${isMounted ? `strength-indicator-${strength}` : ''}`}>
+      <div
+        className={`strength-indicator strength-indicator-strength-${score} ${
+          isMounted ? `strength-indicator-${strength}` : ''
+        }`}
+      >
         {new Array(5).fill(undefined).map((_, index) => (
           <div
             key={index}
