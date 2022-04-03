@@ -11,6 +11,7 @@ import Mnemonic from './Mnemonic';
 import Stats from './Stats';
 import ActionButton from './ActionButton';
 import DownloadArchiveButton from './DownloadArchiveButton';
+import ViewSourceCodeButton from './ViewSourceCodeButton';
 import RerecordButton from './RerecordButton';
 import MicrophoneError from './MicrophoneError';
 import Footer from './Footer';
@@ -152,7 +153,10 @@ export default () => {
         </Container>
 
         <Footer>
-          {!mnemonic && window.location.href.startsWith('http') && <DownloadArchiveButton />}
+          <div className="main-footer">
+            {!mnemonic && window.location.href.startsWith('http') && <DownloadArchiveButton />}
+            {!mnemonic && <ViewSourceCodeButton />}
+          </div>
           {mnemonic && <RerecordButton start={startRecording} />}
         </Footer>
       </animated.div>

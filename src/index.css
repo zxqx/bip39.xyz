@@ -120,7 +120,7 @@ strong {
   background: #0d0620;
   border-radius: 30px;
   box-shadow: 0 0 108px #47299c;
-  transition: all 0.3s;
+  transition: height 0.3s, min-height 0.3s;
 }
 
 @media (max-width: 700px) {
@@ -140,8 +140,8 @@ strong {
 }
 
 .container.container-processed {
-  height: 500px;
-  min-height: 500px;
+  height: 520px;
+  min-height: 520px;
 }
 
 @media (max-width: 600px) {
@@ -506,8 +506,15 @@ button:active {
   text-align: center;
 }
 
+@media (max-width: 600px) {
+  .main-footer {
+    display: none;
+  }
+}
+
 .rerecord-button,
-.download-archive-button {
+.download-archive-button,
+.view-source-code-button {
   font-size: 14px;
   color: #9783d4;
   text-decoration: none;
@@ -516,17 +523,28 @@ button:active {
 }
 
 .rerecord-button:hover,
-.download-archive-button:hover {
+.download-archive-button:hover,
+.view-source-code-button:hover {
   border-bottom-color: #bfb1ea;
   color: #bfb1ea;
 }
 
 .rerecord-button:active,
-.download-archive-button:active {
+.download-archive-button:active,
+.view-source-code-button:active {
   position: relative;
   top: 1px;
   color: #bfb1ea;
   border-bottom-color: #bfb1ea;
+}
+
+.separator {
+  position: relative;
+  top: -1px;
+  margin: 0 12px;
+  display: inline-block;
+  font-size: 10px;
+  opacity: 0.5;
 }
 
 @keyframes rotate {
