@@ -28,6 +28,18 @@
   font-display: block;
 }
 
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 body {
   margin: 0;
   padding-top: 1.8em;
@@ -121,6 +133,45 @@ strong {
   background: #0d0620;
   border-radius: 30px;
   box-shadow: 0 0 108px #47299c;
+}
+
+.container-border {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 30px;
+  transition: opacity 1s;
+  display: none;
+  overflow: hidden;
+}
+
+.container-border.visible {
+  display: block;
+}
+
+.container-border:after {
+  box-sizing: border-box;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  --angle: 0deg;
+  border: 10vmin solid;
+  border-image: conic-gradient(
+      from var(--angle),
+      #6804ff 0%,
+      #ff4d4d 30%,
+      #ff34f9 50%,
+      #ff3458 70%,
+      #6804ff 90%
+    )
+    1;
+  animation: 2s rotate linear infinite;
+  z-index: -1;
 }
 
 @media (max-width: 700px) {

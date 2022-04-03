@@ -73,7 +73,7 @@ export default () => {
 
   return (
     <animated.div style={animationProps}>
-      <Container ref={containerRef}>
+      <Container ref={containerRef} isVisible={isRecording}>
         <animated.div style={waveformAnimationProps}>
           <div
             className="audio-recorder-container"
