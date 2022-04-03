@@ -13,7 +13,13 @@ export default () => {
   return (
     <animated.div style={animationProps}>
       <p className="description">
-        Generate a <strong>mnemonic phrase</strong> for your wallet from an audio recording.
+        Generate a{' '}
+        <strong>
+          <a href="https://en.bitcoinwiki.org/wiki/Mnemonic_phrase" target="_blank">
+            mnemonic phrase
+          </a>
+        </strong>{' '}
+        for your wallet from an audio recording.
       </p>
     </animated.div>
   );

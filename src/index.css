@@ -95,6 +95,17 @@ p {
   }
 }
 
+a {
+  text-decoration: none;
+  color: #fff;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s;
+}
+
+a:hover {
+  border-bottom: 2px solid #fff;
+}
+
 strong {
   color: #fff;
 }
@@ -525,7 +536,7 @@ button:active {
 .rerecord-button:hover,
 .download-archive-button:hover,
 .view-source-code-button:hover {
-  border-bottom-color: #bfb1ea;
+  border-bottom: 1px solid #bfb1ea;
   color: #bfb1ea;
 }
 
@@ -535,7 +546,7 @@ button:active {
   position: relative;
   top: 1px;
   color: #bfb1ea;
-  border-bottom-color: #bfb1ea;
+  border-bottom: 1px solid #bfb1ea;
 }
 
 .separator {
