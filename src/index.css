@@ -71,11 +71,23 @@ h2 {
   text-align: center;
 }
 
+@media (max-width: 400px) {
+  h2 {
+    font-size: 25px;
+  }
+}
+
 p {
   font-size: 22px;
   line-height: 34px;
   color: #e6e1f3;
   text-align: center;
+}
+
+@media (max-width: 400px) {
+  p {
+    font-size: 20px;
+  }
 }
 
 strong {
