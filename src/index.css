@@ -138,13 +138,13 @@ strong {
   }
 }
 
-.container.processed {
+.container.container-processed {
   height: 500px;
   min-height: 500px;
 }
 
 @media (max-width: 600px) {
-  .container.processed {
+  .container.container-processed {
     min-height: 520px;
     height: auto;
   }
@@ -187,7 +187,7 @@ strong {
   z-index: -1;
 }
 
-.container-border.visible:after {
+.container-border.container-border-visible:after {
   opacity: 1;
 }
 
@@ -276,15 +276,47 @@ strong {
   }
 }
 
-.strength-indicator-strong .strength-indicator-bar.filled {
+.strength-indicator-strong .strength-indicator-bar.strength-indicator-bar-filled,
+.strength-indicator-weak .strength-indicator-bar.strength-indicator-bar-filled,
+.strength-indicator-very-weak .strength-indicator-bar.strength-indicator-bar-filled {
+  transition: background 0.5s;
+  animation: 0.5s bulge ease-in;
+}
+
+.strength-indicator-bar.strength-indicator-bar-filled:nth-of-type(1) {
+  transition-delay: 0;
+  animation-delay: 0;
+}
+
+.strength-indicator-bar.strength-indicator-bar-filled:nth-of-type(2) {
+  transition-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+.strength-indicator-bar.strength-indicator-bar-filled:nth-of-type(3) {
+  transition-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.strength-indicator-bar.strength-indicator-bar-filled:nth-of-type(4) {
+  transition-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+.strength-indicator-bar.strength-indicator-bar-filled:nth-of-type(5) {
+  transition-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.strength-indicator-strong .strength-indicator-bar.strength-indicator-bar-filled {
   background: #34ff85;
 }
 
-.strength-indicator-weak .strength-indicator-bar.filled {
+.strength-indicator-weak .strength-indicator-bar.strength-indicator-bar-filled {
   background: #edff4d;
 }
 
-.strength-indicator-very-weak .strength-indicator-bar.filled {
+.strength-indicator-very-weak .strength-indicator-bar.strength-indicator-bar-filled {
   background: #ff3458;
 }
 
@@ -426,6 +458,20 @@ button:active {
 @keyframes rotate {
   to {
     --angle: 360deg;
+  }
+}
+
+@keyframes bulge {
+  0% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(2);
+  }
+
+  100% {
+    transform: scaleY(1);
   }
 }
 

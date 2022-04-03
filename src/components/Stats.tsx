@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 interface Props {
   score: number;
@@ -8,6 +8,8 @@ interface Props {
 const STRENGTHS = ['Extremely Weak', 'Very Weak', 'Too Weak', 'Weak', 'Very Strong'];
 
 export default ({ score, crackTime }: Props) => {
+  const [isMounted, setIsMounted] = useState(false);
+
   const strength = useMemo(() => {
     if (score === 4) {
       return 'strong';
@@ -20,17 +22,25 @@ export default ({ score, crackTime }: Props) => {
     return 'very-weak';
   }, [score]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsMounted(true);
+    }, 0);
+  }, []);
+
   return (
     <div className="stats">
       <div className="stats-label">
         <strong>{STRENGTHS[score]}</strong>
       </div>
 
-      <div className={`strength-indicator strength-indicator-${strength}`}>
+      <div className={`strength-indicator ${isMounted ? `strength-indicator-${strength}` : ''}`}>
         {new Array(5).fill(undefined).map((_, index) => (
           <div
             key={index}
-            className={`strength-indicator-bar ${index <= score ? 'filled' : ''}`}
+            className={`strength-indicator-bar ${
+              index <= score ? 'strength-indicator-bar-filled' : ''
+            }`}
           ></div>
         ))}
       </div>

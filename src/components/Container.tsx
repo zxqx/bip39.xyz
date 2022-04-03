@@ -8,8 +8,8 @@ interface Props {
 
 export default forwardRef(
   ({ isVisible, isProcessed, children }: Props, ref: React.ForwardedRef<HTMLDivElement>) => (
-    <div className={`container ${isProcessed ? 'processed' : ''}`} ref={ref}>
-      <div className={`container-border ${isVisible ? 'visible' : ''}`}></div>
+    <div className={`container ${isProcessed ? 'container-processed' : ''}`} ref={ref}>
+      <div className={`container-border ${isVisible ? 'container-border-visible' : ''}`}></div>
       {children}
     </div>
   )
