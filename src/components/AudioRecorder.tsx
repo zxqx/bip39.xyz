@@ -117,7 +117,7 @@ export default () => {
       </Container>
 
       <Footer>
-        {!mnemonic && <DownloadArchiveButton />}
+        {!mnemonic && window.location.href.startsWith('http') && <DownloadArchiveButton />}
         {mnemonic && <RerecordButton start={startRecording} />}
       </Footer>
     </animated.div>
