@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.png?$/,
@@ -37,11 +37,8 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)$/,
-        loader: 'url-loader',
-        options: {
-          limit: 100000
-        }
-      }
+        type: 'asset/resource',
+      },
     ],
   },
   plugins: [

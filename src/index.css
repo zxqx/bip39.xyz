@@ -1,3 +1,33 @@
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('./fonts/RobotoMono-Regular.woff2') format('woff2'),
+    url('./fonts/RobotoMono-Regular.woff') format('woff'),
+    url('./fonts/RobotoMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('./fonts/RobotoMono-Medium.woff2') format('woff2'),
+    url('./fonts/RobotoMono-Medium.woff') format('woff'),
+    url('./fonts/RobotoMono-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('./fonts/RobotoMono-Bold.woff2') format('woff2'),
+    url('./fonts/RobotoMono-Bold.woff') format('woff'),
+    url('./fonts/RobotoMono-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
 body {
   margin: 0;
   padding-top: 1.8em;
@@ -246,13 +276,16 @@ button:active {
 
 .rerecord-button,
 .download-archive-button {
-  font-size: 16px;
+  font-size: 14px;
   color: #9783d4;
-  transition: color 0.2s;
+  text-decoration: none;
+  border-bottom: 1px solid #9783d4;
+  transition: all 0.2s;
 }
 
 .rerecord-button:hover,
 .download-archive-button:hover {
+  border-bottom-color: #bfb1ea;
   color: #bfb1ea;
 }
 
@@ -261,4 +294,5 @@ button:active {
   position: relative;
   top: 1px;
   color: #bfb1ea;
+  border-bottom-color: #bfb1ea;
 }

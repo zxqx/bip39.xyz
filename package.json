@@ -4,7 +4,6 @@
   "description": "Generate a mnemonic phrase for your wallet from an audio recording.",
   "main": "src/index.tsx",
   "scripts": {
-    "postinstall": "yarn build:libs",
     "start": "yarn build:libs && webpack serve --config webpack.config.dev.js",
     "build": "yarn build:libs && webpack --config webpack.config.prod.js && yarn archive",
     "build:libs": "cd lib/audio-react-recorder && yarn && yarn build && cd ../../node_modules/bip39 && yarn && yarn compile && cd ../..",
