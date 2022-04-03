@@ -199,11 +199,17 @@ strong {
   overflow: hidden;
 }
 
-.microphone-error,
-.microphone-request-message {
+.microphone-error {
+  margin-bottom: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media (max-width: 600px) {
+  .microphone-error {
+    margin-bottom: 80px;
+  }
 }
 
 .description {

@@ -35,8 +35,11 @@ export default () => {
     setEntropyScore(null);
     setCrackTime(null);
     setIsRecordingCancelled(true);
-    stopRecording();
-  }, []);
+
+    if (!hasMicrophoneError) {
+      stopRecording();
+    }
+  }, [hasMicrophoneError]);
 
   const startRecording = useCallback(() => {
     setMnemonic('');
