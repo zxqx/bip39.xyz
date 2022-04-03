@@ -4449,6 +4449,11 @@ schema-utils@^3.0.0:
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
 
+scrambling-letters@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/scrambling-letters/-/scrambling-letters-1.6.2.tgz#e07c33f5f310703aefd29605ad655a1e2987a313"
+  integrity sha512-MsL9SRrShDyxzyiHkc+gqWRpYY7vVz3PCgZMnhAIhxf0OpQTNQ1lNp4Sbcs11o4gEs4bwnFf8SQ80DiEHvLm6A==
+
 select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
