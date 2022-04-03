@@ -14,7 +14,7 @@ export default ({ phrase }: Props) => {
   useEffect(() => {
     Scrambler({
       target: '.mnemonic-phrase',
-      random: [500, 1500],
+      random: [500, 1000],
       speed: 100,
       text: phrase,
     });
