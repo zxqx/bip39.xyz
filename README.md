@@ -1,6 +1,14 @@
 # bip39.xyz
 
-Generate a mnemonic phrase for your wallet from an audio recording at [bip39.xyz](https://bip39.xyz).
+Generate a [mnemonic phrase](https://en.bitcoinwiki.org/wiki/Mnemonic_phrase) for your wallet from an audio recording.
+
+## Features
+
+* Uses [BIP39](https://github.com/coinkite/bip39) JS implementation
+* Displays mnemonic phrase strength indicator
+* Supports offline usage
+* Supports manual source code compilation
+* Works with mobile browsers
 
 ## Development
 
@@ -17,13 +25,13 @@ Clone the repo:
 $ git clone git@github.com:zxqx/bip39.xyz.git
 ```
 
-### Development
-
 Install dependencies:
 
 ```sh
 $ yarn
 ```
+
+### Commands
 
 Run the app in development mode:
 
@@ -35,4 +43,10 @@ Generate a browser-ready build artifact:
 
 ```sh
 $ yarn build
+```
+
+Generate a ZIP archive of the build artifact:
+
+```sh
+$ yarn archive
 ```
