@@ -120,6 +120,7 @@ strong {
   background: #0d0620;
   border-radius: 30px;
   box-shadow: 0 0 108px #47299c;
+  transition: all 0.3s;
 }
 
 @media (max-width: 700px) {
