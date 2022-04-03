@@ -195,11 +195,6 @@ strong {
   overflow: hidden;
 }
 
-.audio-react-recorder {
-  position: relative;
-  top: 14px;
-}
-
 .microphone-error,
 .microphone-request-message {
   display: flex;
