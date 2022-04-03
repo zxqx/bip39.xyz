@@ -241,7 +241,7 @@ strong {
   font-size: 18px;
 }
 
-.stats {
+.strength-indicator-container {
   margin: 10px 0 70px;
   padding: 20px;
   font-size: 14px;
@@ -253,17 +253,17 @@ strong {
 }
 
 @media (max-width: 600px) {
-  .stats {
+  .strength-indicator-container {
     margin-bottom: 100px;
     width: 90%;
   }
 }
 
-.stats-label {
+.strength-indicator-label {
   margin-bottom: 15px;
 }
 
-.stats-details {
+.strength-indicator-details {
   width: 90%;
   margin: 15px auto 0;
   font-size: 11px;
@@ -271,7 +271,7 @@ strong {
   color: rgb(255, 255, 255, 0.5);
 }
 
-.stats-details strong {
+.strength-indicator-details strong {
   color: inherit;
 }
 

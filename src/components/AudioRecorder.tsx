@@ -8,7 +8,7 @@ import AudioRecorder, { RecordState } from '../../lib/audio-react-recorder/dist/
 import Container from './Container';
 import Description from './Description';
 import Mnemonic from './Mnemonic';
-import Stats from './Stats';
+import StrengthIndicator from './StrengthIndicator';
 import ActionButton from './ActionButton';
 import DownloadArchiveButton from './DownloadArchiveButton';
 import ViewSourceCodeButton from './ViewSourceCodeButton';
@@ -141,7 +141,9 @@ export default () => {
 
           <Mnemonic phrase={mnemonic} />
 
-          {entropyScore && crackTime && <Stats score={entropyScore} crackTime={crackTime} />}
+          {entropyScore && crackTime && (
+            <StrengthIndicator score={entropyScore} crackTime={crackTime} />
+          )}
 
           <ActionButton
             isRecording={isRecording}
