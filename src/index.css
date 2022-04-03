@@ -151,13 +151,12 @@ strong {
 }
 
 .container.container-processed {
-  height: 520px;
-  min-height: 520px;
+  height: 560px;
+  min-height: 560px;
 }
 
 @media (max-width: 600px) {
   .container.container-processed {
-    min-height: 520px;
     height: auto;
   }
 }
@@ -212,7 +211,7 @@ strong {
 }
 
 .microphone-error {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -220,24 +219,22 @@ strong {
 
 @media (max-width: 600px) {
   .microphone-error {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
   }
 }
 
 .description {
-  position: relative;
-  top: -8px;
 }
 
 @media (max-width: 600px) {
   .description {
-    top: -30px;
-    margin-bottom: 40px;
+    top: -60px;
+    margin-bottom: 60px;
   }
 }
 
 .mnemonic {
-  margin-bottom: 0;
+  margin-bottom: 30px;
 }
 
 .mnemonic p {
