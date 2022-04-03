@@ -7,6 +7,7 @@ import {
   FaClipboard as CopyIcon,
 } from 'react-icons/fa';
 import useHover from '../hooks/useHover';
+import { isSafari } from '../utils/browser';
 
 interface Props {
   isRecording: boolean;
@@ -49,7 +50,10 @@ export default ({ isRecording, isProcessing, start, stop, mnemonic }: Props) => 
   }, [mnemonic]);
 
   return (
-    <CopyToClipboard text={mnemonic || ' '} onCopy={() => mnemonic && setCopied(true)}>
+    <CopyToClipboard
+      text={mnemonic ? mnemonic : isSafari() ? ' ' : ''}
+      onCopy={() => mnemonic && setCopied(true)}
+    >
       <button
         onClick={onClick}
         className={`${mnemonic && 'copy-button'} ${hoverClasses}`}
