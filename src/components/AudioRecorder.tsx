@@ -61,7 +61,7 @@ export default () => {
 
   const animationProps = useSpring(renderAnimation);
 
-  const isWaveformVisible = useMemo(() => isRecording && !mnemonic, [isRecording, !mnemonic]);
+  const isWaveformVisible = useMemo(() => (isRecording || isProcessing) && !mnemonic, [isRecording, isProcessing, !mnemonic]);
 
   const microphoneErrorAnimationProps = useSpring({
     opacity: hasMicrophoneError ? 1 : 0,

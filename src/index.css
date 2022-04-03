@@ -71,6 +71,12 @@ h2 {
   text-align: center;
 }
 
+@media (max-width: 600px) {
+  h2 {
+    margin-top: 15px;
+  }
+}
+
 @media (max-width: 400px) {
   h2 {
     font-size: 25px;
@@ -127,6 +133,8 @@ strong {
 @media (max-width: 600px) {
   .container {
     padding: 45px;
+    padding-top: 30px;
+    min-height: 365px;
     height: auto;
   }
 }
