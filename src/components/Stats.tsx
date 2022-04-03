@@ -49,7 +49,10 @@ export default ({ score, crackTime }: Props) => {
         ))}
       </div>
 
-      <div className="stats-details">This mnemonic phrase would take {crackTime} to crack.</div>
+      <div className="stats-details">
+        This mnemonic phrase would take <strong>{crackTime}</strong> to crack at 10 billion guesses
+        per second.
+      </div>
     </div>
   );
 };

@@ -263,6 +263,10 @@ strong {
   color: rgb(255, 255, 255, 0.5);
 }
 
+.stats-details strong {
+  color: inherit;
+}
+
 .strength-indicator {
   display: flex;
   align-items: center;
@@ -386,7 +390,7 @@ strong {
   opacity: 0.85;
 }
 
-.strength-indicator-strength-4 .strength-indicator-bar:nth-of-type(4) {
+.strength-indicator-strength-4 .strength-indicator-bar:nth-of-type(5) {
   opacity: 1;
 }
 
