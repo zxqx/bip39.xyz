@@ -143,12 +143,7 @@ strong {
   height: calc(100% + 4px);
   border-radius: 30px;
   transition: opacity 1s;
-  display: none;
   overflow: hidden;
-}
-
-.container-border.visible {
-  display: block;
 }
 
 .container-border:after {
@@ -171,7 +166,13 @@ strong {
     )
     1;
   animation: 2s rotate linear infinite;
+  opacity: 0;
+  transition: opacity 1s;
   z-index: -1;
+}
+
+.container-border.visible:after {
+  opacity: 1;
 }
 
 @media (max-width: 700px) {
