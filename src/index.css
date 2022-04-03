@@ -266,14 +266,18 @@ strong {
   display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: 5px;
 }
 
 .strength-indicator-bar {
+  margin-right: 5px;
   width: 80px;
   height: 4px;
   background: rgb(255, 255, 255, 0.25);
   border-radius: 5px;
+}
+
+.strength-indicator-bar:last-of-type {
+  margin-right: 0;
 }
 
 @media (max-width: 600px) {
