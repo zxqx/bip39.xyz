@@ -1,5 +1,5 @@
 export default () => (
-  <a href="/bip39.zip" className="download-archive-button">
+  <a href="/bip39.xyz.zip" className="download-archive-button">
     Download offline version
   </a>
 );
