@@ -2,11 +2,13 @@ import { useState, useMemo, useCallback } from 'react';
 import { entropyToMnemonic } from 'bip39/bip39';
 import { sha256 } from 'js-sha256';
 import useDimensions from 'react-use-dimensions';
+import zxcvbn from 'zxcvbn';
 import { useSpring, animated } from 'react-spring';
 import AudioRecorder, { RecordState } from '../../lib/audio-react-recorder/dist/index.modern';
 import Container from './Container';
 import Description from './Description';
 import Mnemonic from './Mnemonic';
+import Stats from './Stats';
 import ActionButton from './ActionButton';
 import DownloadArchiveButton from './DownloadArchiveButton';
 import RerecordButton from './RerecordButton';
@@ -25,15 +27,21 @@ export default () => {
   );
   const [mnemonic, setMnemonic] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
+  const [entropyScore, setEntropyScore] = useState<number | null>(null);
+  const [crackTime, setCrackTime] = useState<string | number | null>(null);
 
   const reset = useCallback(() => {
     setMnemonic('');
+    setEntropyScore(null);
+    setCrackTime(null);
     setIsRecordingCancelled(true);
     stopRecording();
   }, []);
 
   const startRecording = useCallback(() => {
     setMnemonic('');
+    setEntropyScore(null);
+    setCrackTime(null);
     setIsRecordingCancelled(false);
     setRecordingState(RecordState.START);
   }, []);
@@ -52,8 +60,11 @@ export default () => {
       const audioData = await recording.blob.arrayBuffer();
       const entropyInput = new Int32Array(audioData).slice(20);
       const entropy = sha256(entropyInput);
+      const entropyStats = zxcvbn(entropy);
       const mnemonic = entropyToMnemonic(entropy);
       setMnemonic(mnemonic);
+      setEntropyScore(entropyStats.score);
+      setCrackTime(entropyStats.crack_times_display.offline_fast_hashing_1e10_per_second);
       setIsProcessing(false);
     },
     [isRecordingCancelled]
@@ -98,7 +109,7 @@ export default () => {
       </animated.div>
 
       <animated.div style={animationProps}>
-        <Container ref={containerRef} isVisible={isRecording}>
+        <Container ref={containerRef} isVisible={isRecording} isProcessed={!!mnemonic}>
           <animated.div style={waveformAnimationProps}>
             <div
               className="audio-recorder-container"
@@ -125,6 +136,8 @@ export default () => {
           </animated.div>
 
           <Mnemonic phrase={mnemonic} />
+
+          {entropyScore && crackTime && <Stats score={entropyScore} crackTime={crackTime} />}
 
           <ActionButton
             isRecording={isRecording}

@@ -39,7 +39,7 @@ body {
   font-family: 'Roboto Mono', Courier, monospace;
   font-size: 18px;
   font-weight: 400;
-  color: #222;
+  color: #e6e1f3;
 }
 
 @media (max-width: 600px) {
@@ -66,7 +66,7 @@ h1 .tld {
 }
 
 h2 {
-  margin: 0 0 41px;
+  margin: 0 0 15px;
   color: #e6e1f3;
   text-align: center;
 }
@@ -86,7 +86,6 @@ h2 {
 p {
   font-size: 22px;
   line-height: 34px;
-  color: #e6e1f3;
   text-align: center;
 }
 
@@ -134,7 +133,19 @@ strong {
   .container {
     padding: 45px;
     padding-top: 30px;
-    min-height: 335px;
+    min-height: 365px;
+    height: auto;
+  }
+}
+
+.container.processed {
+  height: 500px;
+  min-height: 500px;
+}
+
+@media (max-width: 600px) {
+  .container.processed {
+    min-height: 520px;
     height: auto;
   }
 }
@@ -197,29 +208,84 @@ strong {
 
 .description {
   position: relative;
-  top: 12px;
+  top: -8px;
 }
 
 @media (max-width: 600px) {
   .description {
-    top: 0;
+    top: -30px;
+    margin-bottom: 40px;
   }
 }
 
 .mnemonic {
-  margin-bottom: 40px;
-}
-
-@media (max-width: 600px) {
-  .mnemonic {
-    margin-bottom: 80px;
-  }
+  margin-bottom: 0;
 }
 
 .mnemonic p {
-  position: relative;
-  top: -23px;
   font-size: 18px;
+}
+
+.stats {
+  margin: 10px 0 70px;
+  padding: 20px;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .stats {
+    margin-bottom: 100px;
+    width: 90%;
+  }
+}
+
+.stats-label {
+  margin-bottom: 15px;
+}
+
+.stats-details {
+  width: 90%;
+  margin: 15px auto 0;
+  font-size: 11px;
+  line-height: 19px;
+  color: rgb(255, 255, 255, 0.5);
+}
+
+.strength-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+}
+
+.strength-indicator-bar {
+  width: 80px;
+  height: 4px;
+  background: rgb(255, 255, 255, 0.25);
+  border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  .strength-indicator-bar {
+    width: 20%;
+  }
+}
+
+.strength-indicator-strong .strength-indicator-bar.filled {
+  background: #34ff85;
+}
+
+.strength-indicator-weak .strength-indicator-bar.filled {
+  background: #edff4d;
+}
+
+.strength-indicator-very-weak .strength-indicator-bar.filled {
+  background: #ff3458;
 }
 
 button {
