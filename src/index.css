@@ -1,28 +1,18 @@
 @font-face {
-  font-family: 'Roboto Mono';
-  src: url('./fonts/RobotoMono-Regular.woff2') format('woff2'),
-    url('./fonts/RobotoMono-Regular.woff') format('woff'),
-    url('./fonts/RobotoMono-Regular.ttf') format('truetype');
+  font-family: 'iA Writer Mono S';
+  src: url('./fonts/iAWriterMonoS-Regular.woff2') format('woff2'),
+    url('./fonts/iAWriterMonoS-Regular.woff') format('woff'),
+    url('./fonts/iAWriterMonoS-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: block;
 }
 
 @font-face {
-  font-family: 'Roboto Mono';
-  src: url('./fonts/RobotoMono-Medium.woff2') format('woff2'),
-    url('./fonts/RobotoMono-Medium.woff') format('woff'),
-    url('./fonts/RobotoMono-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: block;
-}
-
-@font-face {
-  font-family: 'Roboto Mono';
-  src: url('./fonts/RobotoMono-Bold.woff2') format('woff2'),
-    url('./fonts/RobotoMono-Bold.woff') format('woff'),
-    url('./fonts/RobotoMono-Bold.ttf') format('truetype');
+  font-family: 'iA Writer Mono S';
+  src: url('./fonts/iAWriterMonoS-Bold.woff2') format('woff2'),
+    url('./fonts/iAWriterMonoS-Bold.woff') format('woff'),
+    url('./fonts/iAWriterMonoS-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: block;
@@ -36,7 +26,7 @@ body {
   height: calc(100vh - 1.8em);
   display: flex;
   justify-content: center;
-  font-family: 'Roboto Mono', Courier, monospace;
+  font-family: 'iA Writer Mono S', Courier, monospace;
   font-size: 18px;
   font-weight: 400;
   color: #e6e1f3;
@@ -224,12 +214,14 @@ strong {
 }
 
 .description {
+  line-height: 38px;
 }
 
 @media (max-width: 600px) {
   .description {
     top: -60px;
     margin-bottom: 60px;
+    line-height: 34px;
   }
 }
 
@@ -408,9 +400,9 @@ button {
   padding: 14px 27px;
   min-width: 225px;
   height: 4rem;
-  font-family: 'Roboto Mono', Courier, monospace;
+  font-family: 'iA Writer Mono S', Courier, monospace;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
   color: #fff;
   -webkit-appearance: none;
   background: linear-gradient(to right, #6804ff 0%, #ff4d4d 40%, #ff34f9 70%, #ff3458 100%);
