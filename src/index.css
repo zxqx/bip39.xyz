@@ -421,6 +421,7 @@ button {
   border: none;
   border-radius: 5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  animation: 0.4s bounce ease-in;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0;
@@ -483,6 +484,21 @@ button.on-mouse-leave {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
