@@ -422,6 +422,7 @@ button {
   border-radius: 5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   animation: 0.4s bounce ease-in;
+  animation-fill-mode: forwards;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0;
@@ -450,12 +451,14 @@ button {
 button.on-mouse-enter {
   animation-name: gradient;
   -webkit-animation-name: gradient;
-  animation-duration: 2s;
-  -webkit-animation-duration: 2s;
+  animation-duration: 0.75s;
+  -webkit-animation-duration: 0.75s;
   animation-iteration-count: 1;
   -webkit-animation-iteration-count: 1;
   animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+  -webkit-animation-timing-function: ease-in;
 }
 
 button.on-mouse-leave {
@@ -467,39 +470,8 @@ button.on-mouse-leave {
   -webkit-animation-iteration-count: 1;
   animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100%;
-  }
-}
-
-@keyframes gradient-reverse {
-  0% {
-    background-position: 100%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes bounce {
-  0% {
-    transform: scale(0.1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  75% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-  }
+  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
 }
 
 button:active {
@@ -591,6 +563,39 @@ button:active {
 
   100% {
     transform: scaleY(1);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+@keyframes gradient-reverse {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  75% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
