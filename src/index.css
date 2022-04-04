@@ -246,6 +246,7 @@ strong {
 .strength-indicator-container {
   margin: 10px 0 70px;
   padding: 20px;
+  width: 87.5%;
   font-size: 14px;
   line-height: 22px;
   text-align: center;
@@ -257,7 +258,7 @@ strong {
 @media (max-width: 600px) {
   .strength-indicator-container {
     margin-bottom: 100px;
-    width: 90%;
+    width: 82%;
   }
 }
 
