@@ -213,6 +213,16 @@ strong {
   }
 }
 
+.microphone-error p {
+  line-height: 38px;
+}
+
+@media (max-width: 600px) {
+  .microphone-error p {
+    line-height: 34px;
+  }
+}
+
 .description {
   line-height: 38px;
 }
