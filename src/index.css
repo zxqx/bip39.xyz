@@ -38,18 +38,18 @@ body {
   }
 }
 
-h1 {
+.logo {
   font-size: 32px;
   font-weight: 700;
   color: #e6e1f3;
   text-align: center;
 }
 
-h1 span {
+.logo span {
   cursor: pointer;
 }
 
-h1 .tld {
+.logo .tld {
   margin-left: -3px;
   font-size: 22px;
   color: #e6e1f3cc;
@@ -532,7 +532,6 @@ button:active {
 .download-archive-button:active,
 .view-source-code-button:active {
   position: relative;
-  top: 1px;
   color: #bfb1ea;
   border-bottom: 1px solid #bfb1ea;
 }

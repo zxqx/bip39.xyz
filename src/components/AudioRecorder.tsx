@@ -105,7 +105,7 @@ export default () => {
   return (
     <>
       <animated.div style={animationProps}>
-        <h1>
+        <h1 className="logo">
           <span onClick={() => reset()}>
             bip39<span className="tld">.xyz</span>
           </span>
